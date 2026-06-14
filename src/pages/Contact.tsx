@@ -9,14 +9,18 @@ import { toast } from "@/hooks/use-toast";
 
 const contactInfo = [
   {
-    icon: Mail,
-    title: "Business Consultancy",
-    details: ["Jinane@marqueelan.com", "+971 50 762 8268"],
+    title: "Consulting & Business Solutions",
+    details: [
+      { icon: Mail, value: "info@marqueelan.com" },
+      { icon: Phone, value: "+971 50 762 8268" }
+    ],
   },
   {
-    icon: Phone,
-    title: "Digital Marketing",
-    details: ["Marketing@marqueelan.com", "+971 50 295 0021"],
+    title: "Digital Marketing & Social Media",
+    details: [
+      { icon: Mail, value: "Marketing@marqueelan.com" },
+      { icon: Phone, value: "+971 50 295 0021" }
+    ],
   },
 ];
 
@@ -33,17 +37,17 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     setIsSubmitting(false);
     setIsSubmitted(true);
     toast({
       title: "Message sent!",
       description: "We'll get back to you as soon as possible.",
     });
-    
+
     setFormData({ name: "", email: "", company: "", message: "" });
     setTimeout(() => setIsSubmitted(false), 3000);
   };
@@ -89,18 +93,18 @@ const Contact = () => {
                 <div className="space-y-8">
                   {contactInfo.map((info) => (
                     <div key={info.title} className="flex gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                        <info.icon className="text-primary" size={24} />
-                      </div>
                       <div>
                         <h3 className="font-serif text-lg text-foreground mb-2">
                           {info.title}
                         </h3>
                         <div className="space-y-1">
                           {info.details.map((detail) => (
-                            <p key={detail} className="text-muted-foreground text-sm">
-                              {detail}
-                            </p>
+                            <div key={detail.value} className="flex items-center gap-2">
+                              <detail.icon className="text-primary" size={16} />
+                              <p key={detail.value} className="text-muted-foreground text-sm">
+                                {detail.value}
+                              </p>
+                            </div>
                           ))}
                         </div>
                       </div>
@@ -109,14 +113,14 @@ const Contact = () => {
                 </div>
 
                 {/* Decorative */}
-                <div className="mt-16 p-8 bg-secondary/30 rounded-2xl">
+                {/* <div className="mt-16 p-8 bg-secondary/30 rounded-2xl">
                   <div className="text-center">
                     <span className="text-5xl font-serif text-primary/30">MÉ</span>
                     <p className="text-sm text-muted-foreground mt-4">
                       Your growth partner
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Contact Form */}

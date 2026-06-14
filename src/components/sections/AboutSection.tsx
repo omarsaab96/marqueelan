@@ -20,25 +20,27 @@ export const AboutSection = () => {
               About Us
             </span>
             <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
-              Experience Meets
-              <span className="block text-primary">Strategy</span>
+              Who We Are
+              {/* <span className="block text-primary">Strategy</span> */}
             </h2>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Marque Élan is a business growth agency built by a team of experienced strategists, researchers, and brand specialists. With strong expertise across FMCG, start-ups, social media and digital marketing, we help companies make informed decisions and execute with confidence.
-            </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Our team combines data-driven insights with practical, results-focused strategies supporting brands in defining their direction, strengthening their market presence, and achieving long-term growth.
+              Marque Élan is a specialized consultancy dedicated to helping international brands successfully enter, expand, and thrive across the GCC and Middle East.<br /><br />
+              With deep regional expertise, extensive industry networks, and hands-on commercial experience, we bridge the gap between global brands and local market opportunities. We provide end-to-end market entry and expansion solutions, ensuring businesses navigate regional complexities with confidence and achieve sustainable growth.<br /><br />
+              Our approach combines strategic insight, local market intelligence, and practical execution to transform opportunities into measurable results.
             </p>
+            {/* <p className="text-muted-foreground mb-8 leading-relaxed">
+              Our team combines data-driven insights with practical, results-focused strategies supporting brands in defining their direction, strengthening their market presence, and achieving long-term growth.
+            </p> */}
 
             {/* Highlights */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            {/* <div className="grid grid-cols-2 gap-4 mb-8">
               {highlights.map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="text-primary" size={20} />
                   <span className="text-sm text-foreground">{item}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <Link to="/about">
               <Button variant="default" size="lg" className="group">
@@ -53,9 +55,10 @@ export const AboutSection = () => {
             <div className="aspect-square bg-primary/10 rounded-2xl relative overflow-hidden">
               {/* Decorative Pattern */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-[12rem] font-serif font-light text-primary/20">
+                {/* <div className="text-[12rem] font-serif font-light text-primary/20">
                   MÉ
-                </div>
+                </div> */}
+                <img src="/images/about.jpg" className="aboutImage" />
               </div>
               {/* Stats */}
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary to-transparent">
@@ -75,6 +78,7 @@ export const AboutSection = () => {
                 </div>
               </div>
             </div>
+
             {/* Floating Element */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-secondary rounded-lg flex items-center justify-center shadow-xl animate-float">
               <span className="text-2xl font-serif text-primary">✦</span>

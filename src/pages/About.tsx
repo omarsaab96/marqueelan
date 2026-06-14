@@ -55,19 +55,22 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
-                  Our Story
+                  About us
                 </span>
                 <h2 className="text-4xl font-serif text-foreground mb-6">
-                  Built by Experts,
-                  <span className="block text-primary">Driven by Results</span>
+                  Who We Are
+                  {/* <span className="block text-primary">Driven by Results</span> */}
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Marque Élan is a business growth agency built by a team of experienced strategists, researchers, and brand specialists. With strong expertise across FMCG, start-ups, social media and digital marketing, we help companies make informed decisions and execute with confidence.
+                  Marque Élan is a specialized consultancy dedicated to helping international brands successfully enter, expand, and thrive across the GCC and Middle East.
+                </p>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  With deep regional expertise, extensive industry networks, and hands-on commercial experience, we bridge the gap between global brands and local market opportunities. We provide end-to-end market entry and expansion solutions, ensuring businesses navigate regional complexities with confidence and achieve sustainable growth.
                 </p>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Our team combines data-driven insights with practical, results-focused strategies — supporting brands in defining their direction, strengthening their market presence, and achieving long-term growth.
+                  Our approach combines strategic insight, local market intelligence, and practical execution to transform opportunities into measurable results.
                 </p>
-                <div className="space-y-3">
+                {/* <div className="space-y-3">
                   {[
                     "Deep expertise in FMCG and consumer markets",
                     "Track record with start-ups and established brands",
@@ -79,24 +82,24 @@ const About = () => {
                       <span className="text-foreground text-sm">{item}</span>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
 
               {/* Visual */}
               <div className="relative">
                 <div className="aspect-square bg-secondary/30 rounded-2xl relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[10rem] font-serif text-primary/10">MÉ</span>
+                    <img src="/images/marqueelan.jpg"/>
                   </div>
-                  <div className="absolute inset-6 border border-primary/20 rounded-xl" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary via-primary/80 to-transparent">
+                  {/* <div className="absolute inset-6 border border-primary/20 rounded-xl" /> */}
+                  {/* <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary via-primary/80 to-transparent">
                     <div className="text-center text-primary-foreground">
                       <span className="text-4xl font-serif font-bold">Élan</span>
                       <p className="text-sm text-secondary/70 mt-2">
                         /āˈlän/ — enthusiasm and energy
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -106,22 +109,42 @@ const About = () => {
         {/* Mission Section */}
         <section className="py-24 bg-secondary/30">
           <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-5xl mx-auto text-center">
               <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
                 Our Mission
               </span>
-              <h2 className="text-4xl font-serif text-foreground mb-8">
+              {/* <h2 className="text-4xl font-serif text-foreground mb-8">
                 Moving Businesses Forward
-              </h2>
+              </h2> */}
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                To empower international brands and businesses with the knowledge, strategy, and commercial support needed to successfully enter, grow, and lead within the GCC and Middle East markets.
+              </p>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                At Marque Élan, we believe every brand has the potential for remarkable growth. Our mission is to unlock that potential through strategic insight, creative excellence, and unwavering partnership.
+                We are committed to delivering data-driven insights, strategic guidance, and execution excellence that enable businesses to build sustainable, profitable, and scalable operations across the region.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision Section */}
+        <section className="py-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto text-center">
+              <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
+                Our Vision
+              </span>
+              {/* <h2 className="text-4xl font-serif text-foreground mb-8">
+                Moving Businesses Forward
+              </h2> */}
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                To become the leading growth and market expansion partner in the GCC and Middle East, connecting global brands with regional opportunities and creating long-term value for businesses, consumers, and partners.
               </p>
             </div>
           </div>
         </section>
 
         {/* Values */}
-        <section className="py-24">
+        {/* <section className="py-24">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
@@ -148,7 +171,7 @@ const About = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <CTASection />
       </main>

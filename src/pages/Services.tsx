@@ -1,63 +1,265 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CTASection } from "@/components/sections/CTASection";
-import { 
-  BarChart3, 
-  Palette, 
-  Megaphone, 
-  Rocket, 
-  Package, 
+import {
+  BarChart3,
+  Palette,
+  Megaphone,
+  Rocket,
+  Package,
   Globe,
   Users,
   Target,
 } from "lucide-react";
+import React, { useState } from "react";
 
-const services = [
+const servicestab0 = [
   {
     icon: BarChart3,
-    title: "Market Research & FMCG Insights",
-    description: "We provide in-depth market research and actionable FMCG insights that help brands understand consumer behavior, identify opportunities, and make informed business decisions.",
-    features: ["Consumer Behavior Analysis", "Market Opportunity Mapping", "Trend Forecasting", "Competitive Intelligence"],
+    image: "images/service1.jpg",
+    title: "Market Entry Strategy",
+    description: "",
+    features: [
+      "Market feasibility studies",
+      "Opportunity assessment",
+      "Competitive analysis",
+      "Consumer insights",
+      "Go-to-market strategy",
+      "Market prioritization",
+      "Entry roadmap development"
+    ],
   },
   {
     icon: Target,
-    title: "Consumer Segmentation & Competitive Benchmarking",
-    description: "We analyze your target audience and competitive landscape to define clear consumer segments and position your brand for maximum impact in the market.",
-    features: ["Audience Profiling", "Competitor Analysis", "Market Positioning", "Strategic Recommendations"],
+    image: "images/service2.jpg",
+    title: "Distributor & Partner Selection",
+    description: "",
+    features: [
+      "Distributor identification",
+      "Partner evaluation and qualification",
+      "Commercial negotiations",
+      "Due diligence",
+      "Contract support",
+      "Performance framework development",
+    ],
   },
   {
     icon: Palette,
-    title: "Brand Building & Private Label Development",
-    description: "From brand identity to full private label development, we create strong, distinctive brands that connect with consumers and stand out on the shelf.",
-    features: ["Brand Identity Design", "Private Label Strategy", "Packaging Development", "Brand Guidelines"],
+    image: "images/service3.jpg",
+    title: "Product Registration & Compliance",
+    description: "",
+    features: [
+      "Product registration guidance",
+      "Label compliance review",
+      "Shelf-life requirements",
+      "Documentation support",
+      "Regulatory coordination",
+      "Market-specific compliance recommendations",
+    ],
   },
   {
     icon: Megaphone,
-    title: "Marketing Strategy & Social Media Management",
-    description: "We build marketing strategies and manage your digital presence to increase awareness, drive engagement, and strengthen your brand positioning online.",
-    features: ["Digital Strategy", "Content Creation", "Social Media Management", "Performance Marketing"],
+    image: "images/service4.jpg",
+    title: "Pricing & Commercial Strategy",
+    description: "",
+    features: [
+      "Pricing strategy",
+      "Margin analysis",
+      "Route-to-market costing",
+      "Landed cost calculations",
+      "Trade terms optimization",
+      "Promotion planning",
+    ],
   },
   {
     icon: Rocket,
-    title: "Start-up Portfolio Building & Business Plan Development",
-    description: "We support start-ups with complete portfolio building, strategic business planning, and frameworks that set a solid foundation for long-term growth.",
-    features: ["Business Planning", "Portfolio Strategy", "Investment Readiness", "Growth Frameworks"],
+    image: "images/service5.jpg",
+    title: "Retail & HORECA Development",
+    description: "Marque Élan helps brands establish and expand their presence across both Retail and HORECA channels throughout the GCC and Middle East.",
+    categories: [
+      {
+        id: 0,
+        label: "Retail",
+        features: [
+          "Hypermarkets",
+          "Supermarkets",
+          "Convenience Stores",
+          "Specialty Retailers",
+          "Premium Retail Concepts",
+          "E-commerce Platforms",
+        ],
+      },
+      {
+        id: 1,
+        label: "HORECA",
+        features: [
+          "Hotels",
+          "Restaurants",
+          "Cafés",
+          "Catering Companies",
+          "Quick Service Restaurants (QSR)",
+          "Hospitality Groups",
+          "Institutional Foodservice",
+        ],
+      },
+      {
+        id: 2,
+        label: "Services Include",
+        features: [
+          "Route-to-Market Strategy",
+          "Retail Listing Support",
+          "HORECA Account Development",
+          "Distributor Management",
+          "Trade Marketing",
+          "Sales Activation Programs",
+          "Category Management",
+          "Commercial Negotiations"
+        ],
+      }
+    ],
   },
   {
     icon: Package,
+    image: "images/service6.jpg",
     title: "Sourcing & Procurement Solutions",
-    description: "We streamline sourcing and procurement, connecting you with reliable suppliers and helping you secure high-quality products at competitive prices.",
-    features: ["Supplier Sourcing", "Quality Assurance", "Cost Optimization", "Supply Chain Strategy"],
+    description: "",
+    features: [
+      "Supplier identification",
+      "Product sourcing",
+      "Procurement optimization",
+      "Contract negotiation",
+      "Cost reduction initiatives",
+      "Private label development",
+    ],
   },
   {
     icon: Globe,
-    title: "Website Design & Development",
-    description: "We design and develop clean, modern, and user-friendly websites that reflect your brand, enhance credibility, and support business growth.",
-    features: ["UX/UI Design", "Responsive Development", "E-commerce Solutions", "Performance Optimization"],
+    image: "images/service7.jpg",
+    title: "Commercial Management Support",
+    description: "",
+    features: [
+      "Commercial representation",
+      "Distributor management",
+      "Performance reviews",
+      "Sales monitoring",
+      "Business development",
+      "Market intelligence reporting",
+    ],
+  },
+  {
+    icon: Package,
+    image: "images/service8.jpg",
+    title: "Branding & Digital Marketing",
+    description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
   },
 ];
 
+const servicestab1 = [
+  {
+    icon: BarChart3,
+    image: "images/service9.jpg",
+    title: "Brand & Digital Solutions",
+    description1: "A strong market presence requires more than distribution and sales. Businesses must establish a compelling digital identity that builds credibility, engages customers, and supports long-term growth.",
+    description2: "Marque Élan provides end-to-end digital solutions for businesses across all industries.",
+    description3: "Services include",
+    features: [
+      "Website Design & Development",
+      "Corporate Website Creation",
+      "E-commerce Development",
+      "Website Content Creation",
+      "Search Engine Optimization (SEO)",
+      "Social Media Strategy",
+      "Social Media Management",
+      "Content Creation",
+      "Community Management",
+      "Digital Marketing Campaigns",
+      "Brand Identity Development",
+      "Graphic Design & Creative Services",
+      "Corporate Presentations & Marketing Materials",
+    ],
+    outro: "Whether launching a new business, refreshing an existing brand, or enhancing online visibility, we deliver tailored digital solutions aligned with your commercial objectives."
+  }
+];
+
+const servicestab2 = [
+  {
+    icon: BarChart3,
+    image: "images/service10.jpg",
+    title: "FMCG & Consumer Goods",
+    description: "",
+    features: [
+      "Food & Beverage",
+      "Frozen Foods",
+      "Dairy & Plant-Based Products",
+      "Snacks & Confectionery",
+      "Beverages",
+      "Organic & Natural Products",
+      "Health & Wellness Products",
+      "Beauty & Personal Care",
+      "Household Products",
+      "Consumer Packaged Goods (CPG)",
+      "Private Label Brands",
+    ],
+  },
+  {
+    icon: BarChart3,
+    image: "images/service11.jpg",
+    title: "Retail & Distribution",
+    description: "",
+    features: [
+      "Retail Groups",
+      "Hypermarkets",
+      "Supermarkets",
+      "Convenience Stores",
+      "Specialty Retailers",
+      "E-commerce Platforms",
+    ],
+  },
+  {
+    icon: BarChart3,
+    image: "images/service12.jpg",
+    title: "HORECA & Hospitality",
+    description: "",
+    features: [
+      "Hotels",
+      "Restaurants",
+      "Cafés",
+      "Catering Companies",
+      "Foodservice Operators",
+      "Hospitality Suppliers",
+    ],
+  },
+  {
+    icon: BarChart3,
+    image: "images/service13.jpg",
+    title: "Other Industries",
+    description: "Through our Brand & Digital Solutions division, we also support businesses across multiple sectors requiring branding, website development, social media management, and digital marketing services.",
+    features: [],
+  }
+];
+
+const servicestab3 = [
+  {
+    icon: BarChart3,
+    image: "images/service14.jpg",
+    title: "Market Coverage",
+    description: "Through our network of distributors, retailers, foodservice operators, and strategic partners, Marque Élan supports brands across:",
+    features: [
+      "United Arab Emirates",
+      "Saudi Arabia",
+      "Kuwait",
+      "Qatar",
+      "Bahrain",
+      "Oman",
+      "Lebanon",
+    ],
+    outro: "Our local market expertise enables brands to navigate regulatory requirements, identify the right partners, and accelerate market penetration across the region."
+  }
+];
+
 const Services = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -80,34 +282,132 @@ const Services = () => {
           </div>
         </section>
 
+        <section className="py-4 tabs">
+          <div className="container mx-auto px-6 flex gap-4">
+            <a className={`p-2 rounded-xl ${activeTab === 0 ? "active" : ""}`} onClick={() => { setActiveTab(0) }}>Business Growth & Market Expansion</a>
+            <a className={`p-2 rounded-xl ${activeTab === 1 ? "active" : ""}`} onClick={() => { setActiveTab(1) }}>Brand & Digital Solutions</a>
+            <a className={`p-2 rounded-xl ${activeTab === 2 ? "active" : ""}`} onClick={() => { setActiveTab(2) }}>Industries We Serve</a>
+            <a className={`p-2 rounded-xl ${activeTab === 3 ? "active" : ""}`} onClick={() => { setActiveTab(3) }}>Market Coverage</a>
+          </div>
+        </section>
+
         {/* Services List */}
-        <section className="py-24">
+        <section className="pt-10 pb-24">
           <div className="container mx-auto px-6">
             <div className="space-y-24">
-              {services.map((service, index) => (
+              {activeTab === 0 && servicestab0.map((service, index) => (
                 <div
                   key={service.title}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                    index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-                  }`}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                    }`}
                 >
                   {/* Content */}
                   <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                    <div className="flex items-center gap-4 mb-6">
+                    {/* <div className="flex items-center gap-4 mb-6">
                       <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
                         <service.icon className="text-primary" size={28} />
                       </div>
                       <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
                         Service {String(index + 1).padStart(2, '0')}
                       </span>
-                    </div>
+                    </div> */}
                     <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
                       {service.title}
                     </h2>
                     <p className="text-muted-foreground mb-8 leading-relaxed">
                       {service.description}
                     </p>
-                    <div className="grid grid-cols-2 gap-3">
+                    {service.categories ? (
+                      <div>
+                        {service.categories.map((category) => (
+                          <React.Fragment key={category.id}>
+                            <div
+                              key={category.id}
+                              className="flex items-center gap-2 text-m text-foreground mb-1"
+                            >
+                              {/* <div className="w-1.5 h-1.5 rounded-full bg-primary" /> */}
+                              {category.label}
+                            </div>
+                            <div className="grid grid-cols-2 gap-1 mb-4">
+                              {category.features.map((feature, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center gap-2 text-sm text-foreground"
+                                >
+                                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                  {feature}
+                                </div>
+                              ))}
+                            </div>
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-3">
+                        {service.features && service.features.map((feature) => (
+                          <div
+                            key={feature}
+                            className="flex items-center gap-2 text-sm text-foreground"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                  </div>
+
+                  {/* Visual */}
+                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                    <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
+                      <img className="serviceImageBig" src={service.image} />
+                      {/* <div className="absolute inset-0 flex items-center justify-center">
+                        <service.icon
+                          className="text-primary/10 group-hover:text-primary/20 transition-colors duration-500"
+                          size={180}
+                        />
+                      </div> */}
+                      {/* <div className="absolute bottom-6 left-6 right-6 p-4 bg-background/90 backdrop-blur-sm rounded-lg">
+                        <span className="text-sm font-medium text-foreground">
+                          {service.features[0]}
+                        </span>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {activeTab === 1 && servicestab1.map((service, index) => (
+                <div
+                  key={service.title}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                    }`}
+                >
+                  {/* Content */}
+                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                    {/* <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
+                        <service.icon className="text-primary" size={28} />
+                      </div>
+                      <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
+                        Service {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div> */}
+                    <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
+                      {service.title}
+                    </h2>
+                    <p className="text-muted-foreground mb-2 leading-relaxed">
+                      {service.description1}
+                    </p>
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
+                      {service.description2}
+                    </p>
+                    <p className="text-muted-foreground mb-2 leading-relaxed">
+                      <strong>{service.description3}</strong>
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-3 mb-8">
                       {service.features.map((feature) => (
                         <div
                           key={feature}
@@ -118,22 +418,174 @@ const Services = () => {
                         </div>
                       ))}
                     </div>
+
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
+                      {service.outro}
+                    </p>
                   </div>
 
                   {/* Visual */}
                   <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
-                      <div className="absolute inset-0 flex items-center justify-center">
+                      <img className="serviceImageBig" src={service.image} />
+
+                      {/* <div className="absolute inset-0 flex items-center justify-center">
                         <service.icon
                           className="text-primary/10 group-hover:text-primary/20 transition-colors duration-500"
                           size={180}
                         />
-                      </div>
-                      <div className="absolute bottom-6 left-6 right-6 p-4 bg-background/90 backdrop-blur-sm rounded-lg">
+                      </div> */}
+                      {/* <div className="absolute bottom-6 left-6 right-6 p-4 bg-background/90 backdrop-blur-sm rounded-lg">
                         <span className="text-sm font-medium text-foreground">
                           {service.features[0]}
                         </span>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {activeTab === 2 && servicestab2.map((service, index) => (
+                <div
+                  key={service.title}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                    }`}
+                >
+                  {/* Content */}
+                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                    {/* <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
+                        <service.icon className="text-primary" size={28} />
                       </div>
+                      <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
+                        Service {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div> */}
+                    <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
+                      {service.title}
+                    </h2>
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
+                      {service.description}
+                    </p>
+                    {service.categories ? (
+                      <div>
+                        {service.categories.map((category) => (
+                          <React.Fragment key={category.id}>
+                            <div
+                              key={category.id}
+                              className="flex items-center gap-2 text-m text-foreground mb-1"
+                            >
+                              {/* <div className="w-1.5 h-1.5 rounded-full bg-primary" /> */}
+                              {category.label}
+                            </div>
+                            <div className="grid grid-cols-2 gap-1 mb-4">
+                              {category.features.map((feature, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center gap-2 text-sm text-foreground"
+                                >
+                                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                  {feature}
+                                </div>
+                              ))}
+                            </div>
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-3">
+                        {service.features.map((feature) => (
+                          <div
+                            key={feature}
+                            className="flex items-center gap-2 text-sm text-foreground"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                  </div>
+
+                  {/* Visual */}
+                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                    <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
+                      <img className="serviceImageBig" src={service.image} />
+
+                      {/* <div className="absolute inset-0 flex items-center justify-center">
+                        <service.icon
+                          className="text-primary/10 group-hover:text-primary/20 transition-colors duration-500"
+                          size={180}
+                        />
+                      </div> */}
+                      {/* <div className="absolute bottom-6 left-6 right-6 p-4 bg-background/90 backdrop-blur-sm rounded-lg">
+                        <span className="text-sm font-medium text-foreground">
+                          {service.features[0]}
+                        </span>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {activeTab === 3 && servicestab3.map((service, index) => (
+                <div
+                  key={service.title}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                    }`}
+                >
+                  {/* Content */}
+                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                    {/* <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
+                        <service.icon className="text-primary" size={28} />
+                      </div>
+                      <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
+                        Service {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div> */}
+                    <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
+                      {service.title}
+                    </h2>
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-3 mb-8">
+                      {service.features.map((feature) => (
+                        <div
+                          key={feature}
+                          className="flex items-center gap-2 text-sm text-foreground"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
+                      {service.outro}
+                    </p>
+
+                  </div>
+
+                  {/* Visual */}
+                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                    <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
+                      <img className="serviceImageBig" src={service.image} />
+
+                      {/* <div className="absolute inset-0 flex items-center justify-center">
+                        <service.icon
+                          className="text-primary/10 group-hover:text-primary/20 transition-colors duration-500"
+                          size={180}
+                        />
+                      </div> */}
+                      {/* <div className="absolute bottom-6 left-6 right-6 p-4 bg-background/90 backdrop-blur-sm rounded-lg">
+                        <span className="text-sm font-medium text-foreground">
+                          {service.features[0]}
+                        </span>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -143,9 +595,9 @@ const Services = () => {
         </section>
 
         <CTASection />
-      </main>
+      </main >
       <Footer />
-    </div>
+    </div >
   );
 };
 

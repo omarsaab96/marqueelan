@@ -1,9 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@font-face {
+  font-family: 'sugar';
+  src: url('fonts/BrownSugar.eot');
+  src: url('fonts/BrownSugar.eot?#iefix') format('embedded-opentype'),
+    url('fonts/BrownSugar.woff2') format('woff2'),
+    url('fonts/BrownSugar.woff') format('woff'),
+    url('fonts/BrownSugar.ttf') format('truetype'),
+    url('fonts/BrownSugar.svg#BrownSugar') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Marque Élan Design System */
 
@@ -12,7 +25,7 @@
     /* Primary - Deep Teal #254C62 */
     --primary: 198 45% 26%;
     --primary-foreground: 0 0% 100%;
-    
+
     /* Background - White */
     --background: 0 0% 100%;
     --foreground: 198 45% 26%;
@@ -64,7 +77,7 @@
   .dark {
     --primary: 196 55% 89%;
     --primary-foreground: 198 45% 26%;
-    
+
     --background: 198 45% 12%;
     --foreground: 0 0% 98%;
 
@@ -111,8 +124,62 @@
     font-family: "Lexend Deca", system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: "Cormorant Garamond", Georgia, serif;
+  }
+
+  .font-sugar {
+    font-family: 'sugar';
+  }
+
+  .serviceImage {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .serviceImageBig {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .aboutImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tabs {
+    border-bottom: 1px solid #D4EDF4;
+  }
+
+  .tabs a {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .tabs a.active:hover,
+  .tabs a.active {
+    background-color: #254C62;
+    color: #fff;
+  }
+
+  .tabs a:hover {
+    background-color: #D4EDF4;
+    color:inherit;
   }
 }
 
@@ -151,18 +218,23 @@
   .animate-delay-100 {
     animation-delay: 100ms;
   }
+
   .animate-delay-200 {
     animation-delay: 200ms;
   }
+
   .animate-delay-300 {
     animation-delay: 300ms;
   }
+
   .animate-delay-400 {
     animation-delay: 400ms;
   }
+
   .animate-delay-500 {
     animation-delay: 500ms;
   }
+
   .animate-delay-600 {
     animation-delay: 600ms;
   }

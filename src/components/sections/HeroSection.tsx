@@ -28,20 +28,18 @@ export const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Logo Mark */}
           <div className="mb-8 opacity-0 animate-fade-up">
-            <span className="text-7xl md:text-9xl font-serif font-light tracking-[0.2em] text-primary-foreground">
-              MÉ
-            </span>
+            <img src="logo_lightblue.png" className="w-[250px] m-auto mb-10" />
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium text-primary-foreground mb-6 opacity-0 animate-fade-up animate-delay-200 leading-tight">
-            Élan for every
-            <span className="block italic font-light text-secondary">bold move</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-sugar font-medium text-primary-foreground mb-6 opacity-0 animate-fade-up animate-delay-200 leading-tight">
+            Unlocking Markets.
+            <span className="block italic font-light text-secondary">Accelerating Growth.</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto mb-12 opacity-0 animate-fade-up animate-delay-300 font-light leading-relaxed">
-            A full-service business growth agency helping companies turn insights into measurable results through market research, brand building, and digital excellence.
+            Your Strategic Gateway to the GCC & Middle East
           </p>
 
           {/* CTA Buttons */}

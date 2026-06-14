@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { 
-  BarChart3, 
-  Palette, 
-  Megaphone, 
-  Rocket, 
-  Package, 
+import {
+  BarChart3,
+  Palette,
+  Megaphone,
+  Rocket,
+  Package,
   Globe,
   Users,
   Target,
@@ -15,32 +15,50 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: BarChart3,
-    title: "Market Research & FMCG Insights",
+    image: "images/service1.jpg",
+    title: "Market Entry Strategy",
     description: "In-depth market research and actionable insights that help brands understand consumer behavior and make informed decisions.",
   },
   {
     icon: Target,
-    title: "Consumer Segmentation",
+    image: "images/service2.jpg",
+    title: "Distributor & Partner Selection",
     description: "Analyze your target audience and competitive landscape to define clear segments and position your brand for maximum impact.",
   },
   {
     icon: Palette,
-    title: "Brand Building",
+    image: "images/service3.jpg",
+    title: "Product Registration & Compliance",
     description: "From brand identity to private label development, we create strong, distinctive brands that connect with consumers.",
   },
   {
     icon: Megaphone,
-    title: "Marketing Strategy",
+    image: "images/service4.jpg",
+    title: "Pricing & Commercial Strategy",
     description: "Build marketing strategies and manage your digital presence to increase awareness and strengthen brand positioning.",
   },
   {
     icon: Rocket,
-    title: "Start-up Portfolio Building",
+    image: "images/service5.jpg",
+    title: "Retail & HORECA Development",
     description: "Complete portfolio building, strategic business planning, and frameworks for long-term growth.",
   },
   {
     icon: Package,
-    title: "Sourcing & Procurement",
+    image: "images/service6.jpg",
+    title: "Sourcing & Procurement Solutions",
+    description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
+  },
+  {
+    icon: Package,
+    image: "images/service7.jpg",
+    title: "Commercial Management Support",
+    description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
+  },
+  {
+    icon: Package,
+    image: "images/service8.jpg",
+    title: "Branding & Digital Marketing",
     description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
   },
 ];
@@ -67,18 +85,19 @@ export const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group p-8 bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-500 hover-lift"
+              className="group p-2 bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-500 hover-lift"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+              {/* <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                 <service.icon size={28} />
-              </div>
-              <h3 className="text-xl font-serif text-foreground mb-3 group-hover:text-primary transition-colors">
+              </div> */}
+              <img className="serviceImage" src={service.image} />
+              <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              {/* <p className="text-muted-foreground text-sm leading-relaxed">
                 {service.description}
-              </p>
+              </p> */}
             </div>
           ))}
         </div>

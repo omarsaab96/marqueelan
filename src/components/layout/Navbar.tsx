@@ -40,18 +40,12 @@ export const Navbar = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <span className={cn(
-            "text-3xl font-serif font-semibold tracking-wider transition-colors duration-300",
-            isScrolled ? "text-primary" : "text-primary-foreground"
-          )}>
-            MÉ
-          </span>
-          <span className={cn(
-            "hidden sm:block text-sm tracking-[0.25em] font-light uppercase transition-colors duration-300",
-            isScrolled ? "text-foreground" : "text-primary-foreground"
-          )}>
-            Marque Élan
-          </span>
+          {isScrolled ? (
+            <img src="logo_blue.png" className="w-[100px]" />
+          ) : (
+            <img src="logo_lightblue.png" className="w-[100px]" />
+          )}
+
         </Link>
 
         {/* Desktop Navigation */}

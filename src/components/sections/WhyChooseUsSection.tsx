@@ -3,28 +3,28 @@ import { Target, BarChart3, Settings, Users, Layers } from "lucide-react";
 const reasons = [
   {
     icon: Layers,
-    title: "End-to-End Solutions",
-    description: "From market research to digital marketing and business development, we cover every stage of brand growth.",
+    title: "Industry Expertise",
+    description: "Extensive experience across FMCG, retail, distribution, sourcing, procurement, and category management.",
   },
   {
     icon: BarChart3,
-    title: "Data-Driven Decisions",
-    description: "Our insights and analytics help you make informed, confident business choices.",
+    title: "Regional Knowledge",
+    description: "Deep understanding of GCC and Middle East market dynamics, regulations, consumer behavior, and distribution structures.",
   },
   {
     icon: Settings,
-    title: "Tailored Strategies",
-    description: "Every plan is customized to meet your brand's goals and market opportunities.",
+    title: "Strategic & Practical",
+    description: "We combine strategic consulting with hands-on execution support to ensure recommendations translate into measurable results.",
   },
   {
     icon: Users,
-    title: "Experienced Team",
-    description: "Our multidisciplinary experts bring knowledge from FMCG, start-ups, and established businesses.",
+    title: "Extensive Network",
+    description: "Access to trusted distributors, retailers, suppliers, logistics providers, foodservice operators, and industry stakeholders across the region.",
   },
   {
     icon: Target,
-    title: "Proven Results",
-    description: "We strengthen brand positioning, improve decision-making, and accelerate market growth.",
+    title: "Tailored Solutions",
+    description: "Every market, category, and business is unique. Our solutions are customized to your objectives and growth ambitions.",
   },
 ];
 

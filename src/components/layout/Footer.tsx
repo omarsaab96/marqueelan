@@ -9,8 +9,9 @@ export const Footer = () => {
           {/* Brand */}
           <div className="space-y-6">
             <div>
-              <span className="text-4xl font-serif font-semibold tracking-wider">MÉ</span>
-              <p className="text-sm tracking-[0.25em] mt-2 text-secondary/80">MARQUE ÉLAN</p>
+              {/* <span className="text-4xl font-serif font-semibold tracking-wider">MÉ</span>
+              <p className="text-sm tracking-[0.25em] mt-2 text-secondary/80">MARQUE ÉLAN</p> */}
+              <img src="logo_lightblue.png" className="w-[100px]"/>
             </div>
             <p className="text-secondary/70 text-sm leading-relaxed">
               A full-service business growth agency helping companies turn insights into measurable results.
@@ -37,10 +38,14 @@ export const Footer = () => {
           <div>
             <h4 className="font-serif text-xl mb-6">Services</h4>
             <div className="flex flex-col gap-3 text-sm text-secondary/70">
-              <span>Market Research</span>
-              <span>Brand Building</span>
-              <span>Digital Marketing</span>
-              <span>Business Development</span>
+              <span>Market Entry Strategy</span>
+              <span>Distributor & Partner Selection</span>
+              <span>Product Registration & Compliance</span>
+              <span>Pricing & Commercial Strategy</span>
+              <span>Retail & HORECA Development</span>
+              <span>Sourcing & Procurement Solutions</span>
+              <span>Commercial Management Support</span>
+              <span>Branding & Digital Marketing</span>
             </div>
           </div>
 
@@ -48,20 +53,42 @@ export const Footer = () => {
           <div>
             <h4 className="font-serif text-xl mb-6">Get in Touch</h4>
             <div className="flex flex-col gap-4 text-sm">
-              <a
-                href="mailto:Jinane@marqueelan.com"
-                className="flex items-center gap-3 text-secondary/70 hover:text-secondary transition-colors"
-              >
-                <Mail size={16} />
-                Jinane@marqueelan.com
-              </a>
-              <a
-                href="tel:+971507628268"
-                className="flex items-center gap-3 text-secondary/70 hover:text-secondary transition-colors"
-              >
-                <Phone size={16} />
-                +971 50 762 8268
-              </a>
+              <div>
+                <h6>Consulting & Business Solutions</h6>
+                <a
+                  href="mailto:info@marqueelan.com"
+                  className="flex items-center gap-3 text-secondary/70 hover:text-secondary transition-colors"
+                >
+                  <Mail size={16} />
+                  info@marqueelan.com
+                </a>
+                <a
+                  href="tel:+971507628268"
+                  className="flex items-center gap-3 text-secondary/70 hover:text-secondary transition-colors"
+                >
+                  <Phone size={16} />
+                  +971 50 762 8268
+                </a>
+              </div>
+
+              <div>
+                <h6>Digital Marketing & Social Media </h6>
+                <a
+                  href="mailto:marketing@marqueelan.com"
+                  className="flex items-center gap-3 text-secondary/70 hover:text-secondary transition-colors"
+                >
+                  <Mail size={16} />
+                  marketing@marqueelan.com
+                </a>
+                <a
+                  href="tel:+971502950021"
+                  className="flex items-center gap-3 text-secondary/70 hover:text-secondary transition-colors"
+                >
+                  <Phone size={16} />
+                  +971 50 295 0021
+                </a>
+              </div>
+
               <div className="flex gap-4 mt-4">
                 <a href="#" className="text-secondary/70 hover:text-secondary transition-colors">
                   <Linkedin size={20} />
