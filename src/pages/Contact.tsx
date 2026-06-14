@@ -84,10 +84,12 @@ const Contact = () => {
                   Get in Touch
                 </span>
                 <h2 className="text-4xl font-serif text-foreground mb-6">
-                  We're Here to Help
+                  Let's Build Your Growth Story
                 </h2>
                 <p className="text-muted-foreground mb-12 leading-relaxed">
-                  Whether you have a question about our services, want to discuss a potential project, or simply want to learn more about how we can help your brand grow — we're here for you.
+                  Whether you are an international brand looking to enter the GCC, a company seeking strategic expansion, or a business aiming to strengthen its digital presence, Marque Élan is ready to support your journey.
+                  <br /><br />
+                  Contact us today to explore how we can help unlock your next growth opportunity.
                 </p>
 
                 <div className="space-y-8">

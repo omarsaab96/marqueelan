@@ -39,7 +39,7 @@ export const HeroSection = () => {
 
           {/* Sub-headline */}
           <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto mb-12 opacity-0 animate-fade-up animate-delay-300 font-light leading-relaxed">
-            Your Strategic Gateway to the GCC & Middle East
+            Connecting Brands to Opportunities Across the GCC & Middle East.<br/>Strategy. Execution. Growth
           </p>
 
           {/* CTA Buttons */}
