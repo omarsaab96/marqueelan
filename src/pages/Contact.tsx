@@ -24,6 +24,9 @@ const contactInfo = [
   },
 ];
 
+const contactFormEndpoint =
+  import.meta.env.VITE_CONTACT_FORM_ENDPOINT || `${import.meta.env.BASE_URL}contact.php`;
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -38,18 +41,45 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch(contactFormEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          _subject: `New website inquiry from ${formData.name}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
+      if (!response.ok) {
+        throw new Error("Unable to send message");
+      }
 
-    setFormData({ name: "", email: "", company: "", message: "" });
-    setTimeout(() => setIsSubmitted(false), 3000);
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you as soon as possible.",
+      });
+
+      setFormData({ name: "", email: "", company: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      toast({
+        title: "Message failed",
+        description: "Please try again or email us directly at info@marqueelan.com.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -141,6 +171,7 @@ const Contact = () => {
                         Name
                       </label>
                       <Input
+                        name="name"
                         value={formData.name}
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
@@ -155,6 +186,7 @@ const Contact = () => {
                         Email
                       </label>
                       <Input
+                        name="email"
                         type="email"
                         value={formData.email}
                         onChange={(e) =>
@@ -171,6 +203,7 @@ const Contact = () => {
                       Company
                     </label>
                     <Input
+                      name="company"
                       value={formData.company}
                       onChange={(e) =>
                         setFormData({ ...formData, company: e.target.value })
@@ -184,6 +217,7 @@ const Contact = () => {
                       Message
                     </label>
                     <Textarea
+                      name="message"
                       value={formData.message}
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })

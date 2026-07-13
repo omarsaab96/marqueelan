@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Solutions", path: "/services" },
   { name: "About", path: "/about" },
+  { name: "Solutions", path: "/services" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -64,7 +64,8 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link to="/contact">
+
+          {/* <Link to="/contact">
             <Button
               variant={isScrolled ? "default" : "hero-outline"}
               size="sm"
@@ -72,7 +73,22 @@ export const Navbar = () => {
             >
               Get Started
             </Button>
-          </Link>
+          </Link> */}
+
+          {/* //add button to open pdf in new tab */}
+          <a
+            href="brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant={isScrolled ? "default" : "hero-outline"}
+              size="sm"
+              className="ml-4"
+            >
+              Download our products
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import {
   BarChart3,
   Palette,
@@ -11,6 +12,14 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const services = [
   {
@@ -73,47 +82,78 @@ const services = [
 ];
 
 export const ServicesSection = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [isPaused, setIsPaused] = useState(false);
+
   const getServiceSlug = (service: { title: string; slug?: string }) =>
     service.slug ?? service.title.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+  useEffect(() => {
+    if (!api || isPaused) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      api.scrollNext();
+    }, 3000);
+
+    return () => window.clearInterval(intervalId);
+  }, [api, isPaused]);
 
   return (
     <section id="services" className="py-24  bg-secondary/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
-            What We Do
-          </span>
+          {/* <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
+            Our services
+          </span> */}
           <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
-            Our Services
+            What We Do
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-3xl mx-auto">
             End-to-end solutions from market research to digital marketing and business development.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Link
-              key={service.title}
-              to={`/services?tab=${service.tab}&service=${getServiceSlug(service)}`}
-              className="group p-2 bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-500 hover-lift"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                <service.icon size={28} />
-              </div> */}
-              <img className="serviceImage" src={service.image} />
-              <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              {/* <p className="text-muted-foreground text-sm leading-relaxed">
-                {service.description}
-              </p> */}
-            </Link>
-          ))}
-        </div>
+        {/* Services Carousel */}
+        <Carousel
+          setApi={setApi}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="px-10 md:px-12"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={() => setIsPaused(false)}
+        >
+          <CarouselContent>
+            {services.map((service, index) => (
+              <CarouselItem key={service.title} className="md:basis-1/2 lg:basis-1/3 p-4 pb-10">
+                <Link
+                  to={`/services?tab=${service.tab}&service=${getServiceSlug(service)}`}
+                  className="group block h-full p-2 bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-500 hover-lift"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {/* <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                    <service.icon size={28} />
+                  </div> */}
+                  <img className="serviceImage" src={service.image} />
+                  <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  {/* <p className="text-muted-foreground text-sm leading-relaxed">
+                    {service.description}
+                  </p> */}
+                </Link>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-0" />
+          <CarouselNext className="right-0" />
+        </Carousel>
 
         {/* CTA */}
         <div className="text-center mt-16">
