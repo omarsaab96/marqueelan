@@ -9,9 +9,10 @@ import {
   Package,
   Globe,
   Users,
-  Target,
+  Target,ArrowRight
 } from "lucide-react";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const servicestab0 = [
   {
@@ -150,7 +151,12 @@ const servicestab0 = [
     icon: Package,
     image: "images/service8.jpg",
     title: "Branding & Digital Marketing",
-    description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
+    description: "Strengthen your brand, reach the right audience, and accelerate business growth with our tailored marketing solutions.",
+    cta: {
+      text: "Explore Branding & Digital Marketing",
+      link: "digital-marketing",
+      newTab: false
+    }
   },
 ];
 
@@ -317,6 +323,7 @@ const Services = () => {
                     <p className="text-muted-foreground mb-8 leading-relaxed">
                       {service.description}
                     </p>
+
                     {service.categories ? (
                       <div>
                         {service.categories.map((category) => (
@@ -354,6 +361,13 @@ const Services = () => {
                           </div>
                         ))}
                       </div>
+                    )}
+
+                    {service.cta?.link && service.cta?.link !== "" && (
+                      <Link to={service.cta?.link} target={service.cta?.newTab ? "_blank" : "_self"} rel="noopener noreferrer" className="text-primary font-medium mt-4 flex items-center gap-1">
+                        {service.cta?.text}
+                        <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+                      </Link>
                     )}
 
                   </div>
