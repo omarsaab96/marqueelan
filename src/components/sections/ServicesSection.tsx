@@ -18,48 +18,56 @@ const services = [
     image: "images/service1.jpg",
     title: "Market Entry Strategy",
     description: "In-depth market research and actionable insights that help brands understand consumer behavior and make informed decisions.",
+    tab: 0,
   },
   {
     icon: Target,
     image: "images/service2.jpg",
     title: "Distributor & Partner Selection",
     description: "Analyze your target audience and competitive landscape to define clear segments and position your brand for maximum impact.",
+    tab: 0,
   },
   {
     icon: Palette,
     image: "images/service3.jpg",
     title: "Product Registration & Compliance",
     description: "From brand identity to private label development, we create strong, distinctive brands that connect with consumers.",
+    tab: 0,
   },
   {
     icon: Megaphone,
     image: "images/service4.jpg",
     title: "Pricing & Commercial Strategy",
     description: "Build marketing strategies and manage your digital presence to increase awareness and strengthen brand positioning.",
+    tab: 0,
   },
   {
     icon: Rocket,
     image: "images/service5.jpg",
     title: "Retail & HORECA Development",
     description: "Complete portfolio building, strategic business planning, and frameworks for long-term growth.",
+    tab: 0,
   },
   {
     icon: Package,
     image: "images/service6.jpg",
     title: "Sourcing & Procurement Solutions",
     description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
+    tab: 0,
   },
   {
     icon: Package,
     image: "images/service7.jpg",
     title: "Commercial Management Support",
     description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
+    tab: 0,
   },
   {
     icon: Package,
     image: "images/service8.jpg",
     title: "Branding & Digital Marketing",
     description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
+    tab: 1,
   },
 ];
 
@@ -83,8 +91,9 @@ export const ServicesSection = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <Link
               key={service.title}
+              to={`/services?tab=${service.tab}`}
               className="group p-2 bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-500 hover-lift"
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -98,7 +107,7 @@ export const ServicesSection = () => {
               {/* <p className="text-muted-foreground text-sm leading-relaxed">
                 {service.description}
               </p> */}
-            </div>
+            </Link>
           ))}
         </div>
 

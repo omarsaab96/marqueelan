@@ -32,7 +32,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-sugar font-medium text-primary-foreground mb-6 opacity-0 animate-fade-up animate-delay-200 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-sug ar font-medium text-primary-foreground mb-6 opacity-0 animate-fade-up animate-delay-200 leading-tight">
             Unlocking Markets.
             <span className="block italic font-light text-secondary">Accelerating Growth.</span>
           </h1>

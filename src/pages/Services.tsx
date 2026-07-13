@@ -9,10 +9,10 @@ import {
   Package,
   Globe,
   Users,
-  Target,ArrowRight
+  Target, ArrowRight
 } from "lucide-react";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 
 const servicestab0 = [
   {
@@ -154,13 +154,13 @@ const servicestab0 = [
     description: "Strengthen your brand, reach the right audience, and accelerate business growth with our tailored marketing solutions.",
     cta: {
       text: "Explore Branding & Digital Marketing",
-      link: "digital-marketing",
-      newTab: false
+      link: 1,
+      newTab: "switch"
     }
   },
 ];
 
-const servicestab1 = [
+export const servicestab1 = [
   {
     icon: BarChart3,
     image: "images/service9.jpg",
@@ -263,8 +263,36 @@ const servicestab3 = [
   }
 ];
 
+const getValidTab = (tab: string | null) => {
+  const parsedTab = Number(tab);
+
+  return Number.isInteger(parsedTab) && parsedTab >= 0 && parsedTab <= 3 ? parsedTab : 0;
+};
+
 const Services = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState(() => getValidTab(searchParams.get("tab")));
+
+  useEffect(() => {
+    setActiveTab(getValidTab(searchParams.get("tab")));
+  }, [searchParams]);
+
+  const selectTab = (tab: number) => {
+    setActiveTab(tab);
+    setSearchParams({ tab: String(tab) });
+  };
+
+  const getCtaLink = (link: string | number) => {
+    if (typeof link === "number") {
+      return `/services?tab=${link}`;
+    }
+
+    if (link.startsWith("/") || link.startsWith("http")) {
+      return link;
+    }
+
+    return `/services/${link}`;
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -290,10 +318,10 @@ const Services = () => {
 
         <section className="py-4 tabs">
           <div className="container mx-auto px-6 flex gap-4">
-            <a className={`p-2 rounded-xl ${activeTab === 0 ? "active" : ""}`} onClick={() => { setActiveTab(0) }}>Business Growth & Market Expansion</a>
-            <a className={`p-2 rounded-xl ${activeTab === 1 ? "active" : ""}`} onClick={() => { setActiveTab(1) }}>Brand & Digital Solutions</a>
-            <a className={`p-2 rounded-xl ${activeTab === 2 ? "active" : ""}`} onClick={() => { setActiveTab(2) }}>Industries We Serve</a>
-            <a className={`p-2 rounded-xl ${activeTab === 3 ? "active" : ""}`} onClick={() => { setActiveTab(3) }}>Market Coverage</a>
+            <a className={`p-2 rounded-xl ${activeTab === 0 ? "active" : ""}`} onClick={() => { selectTab(0) }}>Business Growth & Market Expansion</a>
+            <a className={`p-2 rounded-xl ${activeTab === 1 ? "active" : ""}`} onClick={() => { selectTab(1) }}>Brand & Digital Solutions</a>
+            <a className={`p-2 rounded-xl ${activeTab === 2 ? "active" : ""}`} onClick={() => { selectTab(2) }}>Industries We Serve</a>
+            <a className={`p-2 rounded-xl ${activeTab === 3 ? "active" : ""}`} onClick={() => { selectTab(3) }}>Market Coverage</a>
           </div>
         </section>
 
@@ -363,8 +391,14 @@ const Services = () => {
                       </div>
                     )}
 
-                    {service.cta?.link && service.cta?.link !== "" && (
-                      <Link to={service.cta?.link} target={service.cta?.newTab ? "_blank" : "_self"} rel="noopener noreferrer" className="text-primary font-medium mt-4 flex items-center gap-1">
+                    {service.cta && service.cta.newTab === "switch" ? (
+                      <a className="text-primary font-medium mt-4 flex items-center gap-1 cursor-pointer" onClick={() => { selectTab(Number(service.cta?.link ?? 0)); scrollTo(0, 0); }}>
+                        {service.cta?.text}
+                        <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    ) : (
+                      service.cta?.link &&
+                      <Link to={getCtaLink(service.cta.link)} target={service.cta?.newTab ? "_blank" : "_self"} rel="noopener noreferrer" className="text-primary font-medium mt-4 flex items-center gap-1">
                         {service.cta?.text}
                         <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
                       </Link>
@@ -606,7 +640,7 @@ const Services = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section >
 
         <CTASection />
       </main >

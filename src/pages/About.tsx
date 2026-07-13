@@ -89,7 +89,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-square bg-secondary/30 rounded-2xl relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <img src="/images/marqueelan.jpg"/>
+                    <img src="images/marqueelan.jpg"/>
                   </div>
                   {/* <div className="absolute inset-6 border border-primary/20 rounded-xl" /> */}
                   {/* <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary via-primary/80 to-transparent">

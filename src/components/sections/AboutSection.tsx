@@ -58,7 +58,7 @@ export const AboutSection = () => {
                 {/* <div className="text-[12rem] font-serif font-light text-primary/20">
                   MÉ
                 </div> */}
-                <img src="/images/about.jpg" className="aboutImage" />
+                <img src="images/about.jpg" className="aboutImage" />
               </div>
               {/* Stats */}
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary to-transparent">
