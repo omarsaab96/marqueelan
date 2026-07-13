@@ -275,6 +275,7 @@ const getServiceId = (title: string) =>
 const Services = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState(() => getValidTab(searchParams.get("tab")));
+  const [selectedCategoryTab, setSelectedCategoryTab] = useState<string | null>("categoryTab_0");
 
   useEffect(() => {
     setActiveTab(getValidTab(searchParams.get("tab")));
@@ -402,15 +403,26 @@ const Services = () => {
 
                     {service.categories ? (
                       <div>
+                        <ul className="flex gap-4 mb-4 text-sm text-foreground font-medium">
+                          {service.categories.map((category) => (
+                            <li key={"categoryTab_" + category.id}
+                              className={`cursor-pointer hover:opacity-100 transition-opacity ${selectedCategoryTab === "categoryTab_" + category.id ? "opacity-100" : "opacity-30"}`}
+                              onClick={() => { setSelectedCategoryTab("categoryTab_" + category.id); }}
+                            >
+                              {category.label}
+                            </li>
+                          ))}
+                        </ul>
                         {service.categories.map((category) => (
-                          <React.Fragment key={category.id}>
-                            <div
+                          selectedCategoryTab == "categoryTab_" + category.id && <div key={category.id}>
+                            {/* <div
                               key={category.id}
                               className="flex items-center gap-2 text-m text-foreground mb-1"
                             >
-                              {/* <div className="w-1.5 h-1.5 rounded-full bg-primary" /> */}
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                               {category.label}
-                            </div>
+                            </div> */}
+
                             <div className="grid grid-cols-2 gap-1 mb-4">
                               {category.features.map((feature, index) => (
                                 <div
@@ -422,7 +434,7 @@ const Services = () => {
                                 </div>
                               ))}
                             </div>
-                          </React.Fragment>
+                          </div>
                         ))}
                       </div>
                     ) : (

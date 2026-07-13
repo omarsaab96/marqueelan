@@ -1,6 +1,20 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook } from "lucide-react";
 
+const services = [
+  { title: "Market Entry Strategy", tab: 0 },
+  { title: "Distributor & Partner Selection", tab: 0 },
+  { title: "Product Registration & Compliance", tab: 0 },
+  { title: "Pricing & Commercial Strategy", tab: 0 },
+  { title: "Retail & HORECA Development", tab: 0 },
+  { title: "Sourcing & Procurement Solutions", tab: 0 },
+  { title: "Commercial Management Support", tab: 0 },
+  { title: "Branding & Digital Marketing", tab: 1, slug: "brand-digital-solutions" },
+];
+
+const getServiceSlug = (service: { title: string; slug?: string }) =>
+  service.slug ?? service.title.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 export const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -38,14 +52,15 @@ export const Footer = () => {
           <div>
             <h4 className="font-serif text-xl mb-6">Services</h4>
             <div className="flex flex-col gap-3 text-sm text-secondary/70">
-              <span>Market Entry Strategy</span>
-              <span>Distributor & Partner Selection</span>
-              <span>Product Registration & Compliance</span>
-              <span>Pricing & Commercial Strategy</span>
-              <span>Retail & HORECA Development</span>
-              <span>Sourcing & Procurement Solutions</span>
-              <span>Commercial Management Support</span>
-              <span>Branding & Digital Marketing</span>
+              {services.map((service) => (
+                <Link
+                  key={service.title}
+                  to={`/services?tab=${service.tab}&service=${getServiceSlug(service)}`}
+                  className="hover:text-secondary transition-colors"
+                >
+                  {service.title}
+                </Link>
+              ))}
             </div>
           </div>
 

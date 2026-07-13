@@ -41,28 +41,28 @@ export const HeroSection = () => {
           <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto mb-12 opacity-0 animate-fade-up animate-delay-300 font-light leading-relaxed">
             Your Strategic Gateway to the GCC & Middle East
           </p>
+        </div>
+      </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-up animate-delay-400">
-            <Link to="/services">
-              <Button variant="hero" size="xl" className="group">
-                Discover Our Services
-                <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-            <Link to="/contact">
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-up animate-delay-400 absolute right-5 bottom-[150px]">
+        <Link to="/services">
+          <Button variant="ghost" size="xl" className="group font-light text-white/60">
+            Discover Our Services
+            <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </Link>
+        {/* <Link to="/contact">
               <Button variant="hero-outline" size="xl">
                 Contact Us
               </Button>
-            </Link>
-          </div>
-        </div>
+            </Link> */}
       </div>
 
       {/* Scroll Indicator */}
       <button
         onClick={scrollToServices}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-secondary/60 hover:text-secondary transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-secondary/60 hover:text-secondary transition-colors animate-bounce mb-[120px]"
       >
         <ChevronDown size={32} />
       </button>
