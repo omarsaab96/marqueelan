@@ -27,13 +27,13 @@ export const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Logo Mark */}
-          <div className="mb-8 opacity-0 animate-fade-up">
+          {/* <div className="mb-8 opacity-0 animate-fade-up">
             <img src="logo_lightblue.png" className="w-[250px] m-auto mb-10" />
-          </div>
+          </div> */}
 
           {/* Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-sug ar font-medium text-primary-foreground mb-6 opacity-0 animate-fade-up animate-delay-200 leading-tight">
-            Unlocking Markets.
+            <span className="block italic font-light text-secondary">Unlocking Markets.</span>
             <span className="block italic font-light text-secondary">Accelerating Growth.</span>
           </h1>
 

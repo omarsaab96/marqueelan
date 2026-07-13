@@ -269,6 +269,9 @@ const getValidTab = (tab: string | null) => {
   return Number.isInteger(parsedTab) && parsedTab >= 0 && parsedTab <= 3 ? parsedTab : 0;
 };
 
+const getServiceId = (title: string) =>
+  title.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 const Services = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState(() => getValidTab(searchParams.get("tab")));
@@ -276,6 +279,46 @@ const Services = () => {
   useEffect(() => {
     setActiveTab(getValidTab(searchParams.get("tab")));
   }, [searchParams]);
+
+  useEffect(() => {
+    const animatedElements = document.querySelectorAll<HTMLElement>("[data-service-animate]");
+
+    if (!animatedElements.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -80px 0px" }
+    );
+
+    animatedElements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [activeTab]);
+
+  useEffect(() => {
+    const serviceId = searchParams.get("service");
+
+    if (!serviceId) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      document.getElementById(serviceId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [activeTab, searchParams]);
 
   const selectTab = (tab: number) => {
     setActiveTab(tab);
@@ -332,11 +375,16 @@ const Services = () => {
               {activeTab === 0 && servicestab0.map((service, index) => (
                 <div
                   key={service.title}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                  id={getServiceId(service.title)}
+                  className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
                     }`}
                 >
                   {/* Content */}
-                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div
+                    data-service-animate
+                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    style={{ animationDelay: `${index * 120}ms` }}
+                  >
                     {/* <div className="flex items-center gap-4 mb-6">
                       <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
                         <service.icon className="text-primary" size={28} />
@@ -407,7 +455,11 @@ const Services = () => {
                   </div>
 
                   {/* Visual */}
-                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div
+                    data-service-animate
+                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    style={{ animationDelay: `${index * 120 + 150}ms` }}
+                  >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
                       <img className="serviceImageBig" src={service.image} />
                       {/* <div className="absolute inset-0 flex items-center justify-center">
@@ -429,11 +481,16 @@ const Services = () => {
               {activeTab === 1 && servicestab1.map((service, index) => (
                 <div
                   key={service.title}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                  id={getServiceId(service.title)}
+                  className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
                     }`}
                 >
                   {/* Content */}
-                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div
+                    data-service-animate
+                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    style={{ animationDelay: `${index * 120}ms` }}
+                  >
                     {/* <div className="flex items-center gap-4 mb-6">
                       <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
                         <service.icon className="text-primary" size={28} />
@@ -473,7 +530,11 @@ const Services = () => {
                   </div>
 
                   {/* Visual */}
-                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div
+                    data-service-animate
+                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    style={{ animationDelay: `${index * 120 + 150}ms` }}
+                  >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
                       <img className="serviceImageBig" src={service.image} />
 
@@ -496,11 +557,16 @@ const Services = () => {
               {activeTab === 2 && servicestab2.map((service, index) => (
                 <div
                   key={service.title}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                  id={getServiceId(service.title)}
+                  className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
                     }`}
                 >
                   {/* Content */}
-                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div
+                    data-service-animate
+                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    style={{ animationDelay: `${index * 120}ms` }}
+                  >
                     {/* <div className="flex items-center gap-4 mb-6">
                       <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
                         <service.icon className="text-primary" size={28} />
@@ -557,7 +623,11 @@ const Services = () => {
                   </div>
 
                   {/* Visual */}
-                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div
+                    data-service-animate
+                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    style={{ animationDelay: `${index * 120 + 150}ms` }}
+                  >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
                       <img className="serviceImageBig" src={service.image} />
 
@@ -580,11 +650,16 @@ const Services = () => {
               {activeTab === 3 && servicestab3.map((service, index) => (
                 <div
                   key={service.title}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                  id={getServiceId(service.title)}
+                  className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
                     }`}
                 >
                   {/* Content */}
-                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div
+                    data-service-animate
+                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    style={{ animationDelay: `${index * 120}ms` }}
+                  >
                     {/* <div className="flex items-center gap-4 mb-6">
                       <div className="w-14 h-14 rounded-lg bg-secondary flex items-center justify-center">
                         <service.icon className="text-primary" size={28} />
@@ -619,7 +694,11 @@ const Services = () => {
                   </div>
 
                   {/* Visual */}
-                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div
+                    data-service-animate
+                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    style={{ animationDelay: `${index * 120 + 150}ms` }}
+                  >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
                       <img className="serviceImageBig" src={service.image} />
 

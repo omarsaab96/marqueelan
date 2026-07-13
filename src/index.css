@@ -208,6 +208,29 @@
   .line-reveal:hover::after {
     @apply translate-x-0;
   }
+
+  .service-reveal {
+    opacity: 0;
+    transition: opacity 800ms ease, transform 800ms ease;
+    will-change: opacity, transform;
+  }
+
+  .service-reveal-up {
+    transform: translateY(30px);
+  }
+
+  .service-reveal-left {
+    transform: translateX(-50px);
+  }
+
+  .service-reveal-right {
+    transform: translateX(50px);
+  }
+
+  .service-reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 @layer utilities {

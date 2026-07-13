@@ -68,10 +68,14 @@ const services = [
     title: "Branding & Digital Marketing",
     description: "Streamline sourcing and connect with reliable suppliers for high-quality products at competitive prices.",
     tab: 1,
+    slug: "brand-digital-solutions",
   },
 ];
 
 export const ServicesSection = () => {
+  const getServiceSlug = (service: { title: string; slug?: string }) =>
+    service.slug ?? service.title.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
   return (
     <section id="services" className="py-24  bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -93,7 +97,7 @@ export const ServicesSection = () => {
           {services.map((service, index) => (
             <Link
               key={service.title}
-              to={`/services?tab=${service.tab}`}
+              to={`/services?tab=${service.tab}&service=${getServiceSlug(service)}`}
               className="group p-2 bg-card rounded-lg border border-border hover:border-primary/30 transition-all duration-500 hover-lift"
               style={{ animationDelay: `${index * 100}ms` }}
             >
