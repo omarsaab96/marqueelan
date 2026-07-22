@@ -19,7 +19,7 @@ const servicestab0 = [
     icon: BarChart3,
     image: "images/service1.jpg",
     title: "Market Entry Strategy",
-    description: "",
+    description: "Entering a new market requires more than ambition—it requires the right strategy. Marque Élan helps brands evaluate market potential, understand consumer demand, analyze competitors, and develop a clear roadmap for successful expansion across the GCC and Middle East.",
     features: [
       "Market feasibility studies",
       "Opportunity assessment",
@@ -34,7 +34,7 @@ const servicestab0 = [
     icon: Target,
     image: "images/service2.jpg",
     title: "Distributor & Partner Selection",
-    description: "",
+    description: "The right local partner is key to sustainable growth. We identify, evaluate, and connect brands with reliable distributors and strategic partners while supporting negotiations, due diligence, and long-term commercial success.",
     features: [
       "Distributor identification",
       "Partner evaluation and qualification",
@@ -48,7 +48,7 @@ const servicestab0 = [
     icon: Palette,
     image: "images/service3.jpg",
     title: "Product Registration & Compliance",
-    description: "",
+    description: "Every market has its own regulatory requirements. We guide brands through the registration process, helping ensure products meet local regulations, labeling standards, and documentation requirements for a smooth market entry.",
     features: [
       "Product registration guidance",
       "Label compliance review",
@@ -62,7 +62,7 @@ const servicestab0 = [
     icon: Megaphone,
     image: "images/service4.jpg",
     title: "Pricing & Commercial Strategy",
-    description: "",
+    description: "A successful pricing strategy balances competitiveness with profitability. We develop commercial models that optimize margins, calculate landed costs, define trade terms, and support sustainable pricing across multiple sales channels.",
     features: [
       "Pricing strategy",
       "Margin analysis",
@@ -76,7 +76,7 @@ const servicestab0 = [
     icon: Rocket,
     image: "images/service5.jpg",
     title: "Retail & HORECA Development",
-    description: "Marque Élan helps brands establish and expand their presence across both Retail and HORECA channels throughout the GCC and Middle East.",
+    description: "Marque Élan supports brands in building a strong presence across both Retail and HORECA channels. From securing listings with major retailers to expanding into hotels, restaurants, cafés, and foodservice operators, we create tailored commercial strategies that accelerate growth.",
     categories: [
       {
         id: 0,
@@ -123,7 +123,7 @@ const servicestab0 = [
     icon: Package,
     image: "images/service6.jpg",
     title: "Sourcing & Procurement Solutions",
-    description: "",
+    description: "We help businesses source quality products and reliable suppliers while optimizing procurement processes. Our focus is on improving efficiency, reducing costs, and supporting private label development from concept to commercialization.",
     features: [
       "Supplier identification",
       "Product sourcing",
@@ -137,7 +137,7 @@ const servicestab0 = [
     icon: Globe,
     image: "images/service7.jpg",
     title: "Commercial Management Support",
-    description: "",
+    description: "Beyond market entry, we provide ongoing commercial support to help brands grow and strengthen their market position. We work closely with distributors and partners to monitor performance, identify opportunities, and drive continuous business growth.",
     features: [
       "Commercial representation",
       "Distributor management",
@@ -403,7 +403,7 @@ const Services = () => {
 
                     {service.categories ? (
                       <div>
-                        <ul className="flex gap-4 mb-4 text-sm text-foreground font-medium">
+                        <ul className="flex gap-4 mb-4 text-sm text-muted-foreground font-medium">
                           {service.categories.map((category) => (
                             <li key={"categoryTab_" + category.id}
                               className={`cursor-pointer hover:opacity-100 transition-opacity ${selectedCategoryTab === "categoryTab_" + category.id ? "opacity-100" : "opacity-30"}`}
@@ -419,7 +419,7 @@ const Services = () => {
                               key={category.id}
                               className="flex items-center gap-2 text-m text-foreground mb-1"
                             >
-                              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                              <div className="w-1.5 h-1.5 rounded-full bg-lightblue" />
                               {category.label}
                             </div> */}
 
@@ -427,9 +427,9 @@ const Services = () => {
                               {category.features.map((feature, index) => (
                                 <div
                                   key={index}
-                                  className="flex items-center gap-2 text-sm text-foreground"
+                                  className="flex items-center gap-2 text-sm text-muted-foreground"
                                 >
-                                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                  <div className="w-1.5 h-1.5 rounded-full bg-lightblue" />
                                   {feature}
                                 </div>
                               ))}
@@ -442,9 +442,9 @@ const Services = () => {
                         {service.features && service.features.map((feature) => (
                           <div
                             key={feature}
-                            className="flex items-center gap-2 text-sm text-foreground"
+                            className="flex items-center gap-2 text-sm text-muted-foreground"
                           >
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-lightblue" />
                             {feature}
                           </div>
                         ))}
@@ -528,9 +528,9 @@ const Services = () => {
                       {service.features.map((feature) => (
                         <div
                           key={feature}
-                          className="flex items-center gap-2 text-sm text-foreground"
+                          className="flex items-center gap-2 text-sm text-muted-foreground"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-lightblue" />
                           {feature}
                         </div>
                       ))}
@@ -601,16 +601,16 @@ const Services = () => {
                               key={category.id}
                               className="flex items-center gap-2 text-m text-foreground mb-1"
                             >
-                              {/* <div className="w-1.5 h-1.5 rounded-full bg-primary" /> */}
+                              {/* <div className="w-1.5 h-1.5 rounded-full bg-lightblue" /> */}
                               {category.label}
                             </div>
                             <div className="grid grid-cols-2 gap-1 mb-4">
                               {category.features.map((feature, index) => (
                                 <div
                                   key={index}
-                                  className="flex items-center gap-2 text-sm text-foreground"
+                                  className="flex items-center gap-2 text-sm text-muted-foreground"
                                 >
-                                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                  <div className="w-1.5 h-1.5 rounded-full bg-lightblue" />
                                   {feature}
                                 </div>
                               ))}
@@ -623,9 +623,9 @@ const Services = () => {
                         {service.features.map((feature) => (
                           <div
                             key={feature}
-                            className="flex items-center gap-2 text-sm text-foreground"
+                            className="flex items-center gap-2 text-sm text-muted-foreground"
                           >
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-lightblue" />
                             {feature}
                           </div>
                         ))}
@@ -691,9 +691,9 @@ const Services = () => {
                       {service.features.map((feature) => (
                         <div
                           key={feature}
-                          className="flex items-center gap-2 text-sm text-foreground"
+                          className="flex items-center gap-2 text-sm text-muted-foreground"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-lightblue" />
                           {feature}
                         </div>
                       ))}

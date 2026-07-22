@@ -54,9 +54,9 @@ const About = () => {
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
+                {/* <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
                   About us
-                </span>
+                </span> */}
                 <h2 className="text-4xl font-serif text-foreground mb-6">
                   Who We Are
                   {/* <span className="block text-primary">Driven by Results</span> */}

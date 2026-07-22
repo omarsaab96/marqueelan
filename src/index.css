@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-lightblue{
+  background-color:#42748a;
+}
 
 @font-face {
   font-family: 'sugar';
@@ -145,10 +148,10 @@
     border-radius: 4px;
     margin-bottom: 10px;
   }
-  
+
   .serviceImageBig {
     width: 100%;
-    height:100%;
+    height: 100%;
     object-fit: cover;
     display: block;
     border-radius: 4px;
@@ -179,7 +182,7 @@
 
   .tabs a:hover {
     background-color: #D4EDF4;
-    color:inherit;
+    color: inherit;
   }
 }
 
