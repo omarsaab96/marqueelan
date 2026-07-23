@@ -360,17 +360,17 @@ const Services = () => {
           </div>
         </section>
 
-        <section className="py-4 tabs">
-          <div className="container mx-auto px-6 flex gap-4">
-            <a className={`p-2 rounded-xl ${activeTab === 0 ? "active" : ""}`} onClick={() => { selectTab(0) }}>Business Growth & Market Expansion</a>
-            <a className={`p-2 rounded-xl ${activeTab === 1 ? "active" : ""}`} onClick={() => { selectTab(1) }}>Brand & Digital Solutions</a>
-            <a className={`p-2 rounded-xl ${activeTab === 2 ? "active" : ""}`} onClick={() => { selectTab(2) }}>Industries We Serve</a>
-            <a className={`p-2 rounded-xl ${activeTab === 3 ? "active" : ""}`} onClick={() => { selectTab(3) }}>Market Coverage</a>
+        <section className="py-2 md:py-4 tabs">
+          <div className="container mx-auto px-2 md:px-6 flex flex-nowrap gap-4 overflow-x-auto scroll-0 hide-scrollbar">
+            <a className={`text-xs md:text-sm p-2 rounded-xl whitespace-nowrap ${activeTab === 0 ? "active" : ""}`} onClick={() => { selectTab(0) }}>Business Growth & Market Expansion</a>
+            <a className={`text-xs md:text-sm p-2 rounded-xl whitespace-nowrap ${activeTab === 1 ? "active" : ""}`} onClick={() => { selectTab(1) }}>Brand & Digital Solutions</a>
+            <a className={`text-xs md:text-sm p-2 rounded-xl whitespace-nowrap ${activeTab === 2 ? "active" : ""}`} onClick={() => { selectTab(2) }}>Industries We Serve</a>
+            <a className={`text-xs md:text-sm p-2 rounded-xl whitespace-nowrap ${activeTab === 3 ? "active" : ""}`} onClick={() => { selectTab(3) }}>Market Coverage</a>
           </div>
         </section>
 
         {/* Services List */}
-        <section className="pt-10 pb-24">
+        <section className="pt-10 pb-24 overflow-hidden w-100">
           <div className="container mx-auto px-6">
             <div className="space-y-24">
               {activeTab === 0 && servicestab0.map((service, index) => (
@@ -383,7 +383,7 @@ const Services = () => {
                   {/* Content */}
                   <div
                     data-service-animate
-                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    className={`order-2 lg:order-none ${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
                     style={{ animationDelay: `${index * 120}ms` }}
                   >
                     {/* <div className="flex items-center gap-4 mb-6">
@@ -423,7 +423,7 @@ const Services = () => {
                               {category.label}
                             </div> */}
 
-                            <div className="grid grid-cols-2 gap-1 mb-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-4">
                               {category.features.map((feature, index) => (
                                 <div
                                   key={index}
@@ -438,7 +438,7 @@ const Services = () => {
                         ))}
                       </div>
                     ) : (
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {service.features && service.features.map((feature) => (
                           <div
                             key={feature}
@@ -469,7 +469,7 @@ const Services = () => {
                   {/* Visual */}
                   <div
                     data-service-animate
-                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    className={`relative order-1 lg:order-none ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
                     style={{ animationDelay: `${index * 120 + 150}ms` }}
                   >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
@@ -500,7 +500,7 @@ const Services = () => {
                   {/* Content */}
                   <div
                     data-service-animate
-                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    className={`order-2 lg:order-none ${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
                     style={{ animationDelay: `${index * 120}ms` }}
                   >
                     {/* <div className="flex items-center gap-4 mb-6">
@@ -524,7 +524,7 @@ const Services = () => {
                       <strong>{service.description3}</strong>
                     </p>
 
-                    <div className="grid grid-cols-2 gap-3 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                       {service.features.map((feature) => (
                         <div
                           key={feature}
@@ -544,7 +544,7 @@ const Services = () => {
                   {/* Visual */}
                   <div
                     data-service-animate
-                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    className={`relative order-1 lg:order-none ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
                     style={{ animationDelay: `${index * 120 + 150}ms` }}
                   >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
@@ -576,7 +576,7 @@ const Services = () => {
                   {/* Content */}
                   <div
                     data-service-animate
-                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    className={`order-2 lg:order-none ${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
                     style={{ animationDelay: `${index * 120}ms` }}
                   >
                     {/* <div className="flex items-center gap-4 mb-6">
@@ -604,7 +604,7 @@ const Services = () => {
                               {/* <div className="w-1.5 h-1.5 rounded-full bg-lightblue" /> */}
                               {category.label}
                             </div>
-                            <div className="grid grid-cols-2 gap-1 mb-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-4">
                               {category.features.map((feature, index) => (
                                 <div
                                   key={index}
@@ -619,7 +619,7 @@ const Services = () => {
                         ))}
                       </div>
                     ) : (
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {service.features.map((feature) => (
                           <div
                             key={feature}
@@ -637,7 +637,7 @@ const Services = () => {
                   {/* Visual */}
                   <div
                     data-service-animate
-                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    className={`relative order-1 lg:order-none ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
                     style={{ animationDelay: `${index * 120 + 150}ms` }}
                   >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">
@@ -669,7 +669,7 @@ const Services = () => {
                   {/* Content */}
                   <div
                     data-service-animate
-                    className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
+                    className={`order-2 lg:order-none ${index % 2 === 1 ? 'lg:col-start-2' : ''} service-reveal service-reveal-up`}
                     style={{ animationDelay: `${index * 120}ms` }}
                   >
                     {/* <div className="flex items-center gap-4 mb-6">
@@ -687,7 +687,7 @@ const Services = () => {
                       {service.description}
                     </p>
 
-                    <div className="grid grid-cols-2 gap-3 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                       {service.features.map((feature) => (
                         <div
                           key={feature}
@@ -708,7 +708,7 @@ const Services = () => {
                   {/* Visual */}
                   <div
                     data-service-animate
-                    className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
+                    className={`relative order-1 lg:order-none ${index % 2 === 1 ? 'lg:col-start-1' : ''} service-reveal ${index % 2 === 0 ? 'service-reveal-right' : 'service-reveal-left'}`}
                     style={{ animationDelay: `${index * 120 + 150}ms` }}
                   >
                     <div className="aspect-[4/3] bg-gradient-to-br from-secondary/50 to-secondary/20 rounded-2xl relative overflow-hidden group">

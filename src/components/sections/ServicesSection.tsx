@@ -101,10 +101,10 @@ export const ServicesSection = () => {
   }, [api, isPaused]);
 
   return (
-    <section id="services" className="py-24  bg-secondary/30">
+    <section id="services" className="py-10 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-5 md:mb-16">
           {/* <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4 block">
             Our services
           </span> */}
@@ -156,7 +156,7 @@ export const ServicesSection = () => {
         </Carousel>
 
         {/* CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-5 md:mt-16">
           <Link to="/services">
             <Button variant="outline" size="lg" className="group">
               View All Services

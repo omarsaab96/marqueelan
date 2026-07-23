@@ -106,11 +106,12 @@ export const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-lg shadow-lg transition-all duration-300 overflow-hidden",
-          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          "md:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-lg shadow-lg transition-all duration-300 overflow-hidden ",
+          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+          isScrolled ? "bg-white" :"bg-white"
         )}
       >
-        <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+        <div className="container mx-auto px-6 py-6 flex flex-col gap-4 ">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -125,11 +126,24 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" className="mt-4">
+          {/* <Link to="/contact" className="mt-4">
             <Button variant="default" className="w-full">
               Get Started
             </Button>
-          </Link>
+          </Link> */}
+          <a
+            href="brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="default"
+              size="sm"
+              className=""
+            >
+              Download our products
+            </Button>
+          </a>
         </div>
       </div>
     </nav>

@@ -10,12 +10,12 @@
 
 @font-face {
   font-family: 'sugar';
-  src: url('/v2/fonts/BrownSugar.eot');
-  src: url('/v2/fonts/BrownSugar.eot?#iefix') format('embedded-opentype'),
-    url('/v2/fonts/BrownSugar.woff2') format('woff2'),
-    url('/v2/fonts/BrownSugar.woff') format('woff'),
-    url('/v2/fonts/BrownSugar.ttf') format('truetype'),
-    url('/v2/fonts/BrownSugar.svg#BrownSugar') format('svg');
+  src: url('/fonts/BrownSugar.eot');
+  src: url('/fonts/BrownSugar.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/BrownSugar.woff2') format('woff2'),
+    url('/fonts/BrownSugar.woff') format('woff'),
+    url('/fonts/BrownSugar.ttf') format('truetype'),
+    url('/fonts/BrownSugar.svg#BrownSugar') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -147,6 +147,12 @@
     display: block;
     border-radius: 4px;
     margin-bottom: 10px;
+  }
+
+  @media all and (max-width: 768px) {
+    .serviceImage {
+      max-height: 100px;
+    }
   }
 
   .serviceImageBig {

@@ -1,4 +1,6 @@
 <?php
+// Copy this file to contact-config.php on the server, or set the matching
+// CONTACT_* environment variables supported by contact.php.
 return [
     'host' => 'smtp.hostinger.com',
     'port' => 465,

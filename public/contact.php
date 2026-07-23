@@ -3,13 +3,47 @@ header('Content-Type: application/json');
 
 $configPath = __DIR__ . '/contact-config.php';
 
-if (!file_exists($configPath)) {
+function envValue($key) {
+    $value = getenv($key);
+
+    return $value === false ? null : $value;
+}
+
+function loadContactConfig($configPath) {
+    if (file_exists($configPath)) {
+        return require $configPath;
+    }
+
+    return [
+        'host' => envValue('CONTACT_SMTP_HOST'),
+        'port' => envValue('CONTACT_SMTP_PORT') ?: 465,
+        'secure' => envValue('CONTACT_SMTP_SECURE') ?: 'ssl',
+        'username' => envValue('CONTACT_SMTP_USERNAME'),
+        'password' => envValue('CONTACT_SMTP_PASSWORD'),
+        'to' => envValue('CONTACT_FORM_TO'),
+        'from' => envValue('CONTACT_FORM_FROM') ?: envValue('CONTACT_SMTP_USERNAME'),
+        'from_name' => envValue('CONTACT_FORM_FROM_NAME') ?: 'Marque Elan Website',
+    ];
+}
+
+$config = loadContactConfig($configPath);
+$requiredConfig = ['host', 'port', 'secure', 'username', 'password', 'to', 'from'];
+
+foreach ($requiredConfig as $key) {
+    if (!isset($config[$key]) || trim((string) $config[$key]) === '') {
+        error_log('Contact form missing config value: ' . $key);
+        http_response_code(500);
+        echo json_encode(['success' => false, 'message' => 'Contact form is not configured']);
+        exit;
+    }
+}
+
+if (!in_array($config['secure'], ['ssl', 'tls', 'none'], true)) {
+    error_log('Contact form invalid secure config: ' . $config['secure']);
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Contact form is not configured']);
     exit;
 }
-
-$config = require $configPath;
 
 function smtpRead($socket) {
     $response = '';

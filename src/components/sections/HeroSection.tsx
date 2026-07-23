@@ -11,7 +11,7 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 ">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/95" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/10 to-transparent" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
@@ -19,9 +19,9 @@ export const HeroSection = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-px h-32 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
-      <div className="absolute bottom-20 right-10 w-px h-32 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
-      <div className="absolute top-1/3 left-20 w-20 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent" />
+      <div className="absolute top-20 left-10 w-px h-32 bg-gradient-to-b from-transparent via-secondary/30 to-transparent hidden md:block"/>
+      <div className="absolute bottom-20 right-10 w-px h-32 bg-gradient-to-b from-transparent via-secondary/30 to-transparent hidden md:block" />
+      <div className="absolute top-1/3 left-20 w-20 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent hidden md:block" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
@@ -45,7 +45,7 @@ export const HeroSection = () => {
       </div>
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-up animate-delay-400 absolute right-5 bottom-[150px]">
+      <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-up animate-delay-400 absolute right-50 translate-x-[50%] md:right-5 bottom-[200px] md:bottom-[150px]">
         <Link to="/services">
           <Button variant="ghost" size="xl" className="group font-light text-white/60">
             Discover Our Services
@@ -62,7 +62,7 @@ export const HeroSection = () => {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToServices}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-secondary/60 hover:text-secondary transition-colors animate-bounce mb-[120px]"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-secondary/60 hover:text-secondary transition-colors md:animate-bounce mb-[120px]"
       >
         <ChevronDown size={32} />
       </button>
